@@ -82,8 +82,8 @@ function setRestMode() {
     
     if (isWorkTime) {
         // Switch to rest mode
-        timeLeft = 75;  // 1 minute and 15 seconds
-        modeText.textContent = 'Stretch, drink some water, do some pushups.';
+        timeLeft = 5 * 60;  // Changed from 75 to 5 minutes (300 seconds)
+        modeText.textContent = 'Time for a 5-minute break. Stretch and hydrate!';
         restButton.textContent = 'Work Mode';
         isWorkTime = false;
     } else {
