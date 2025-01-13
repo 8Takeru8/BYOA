@@ -1,9 +1,9 @@
 :root {
-  --primary: #1B3D4B;     /* Deeper teal-blue */
-  --success: #739E82;     /* Fresh sage */
-  --danger: #E3A587;      /* Warm coral */
-  --background: #F8F8F8;  /* Crisp white-grey */
-  --text: #233236;       /* Deep charcoal */
+  --primary: #234D5C;     /* Slightly lighter teal for better readability */
+  --success: #7FAE8C;     /* Brighter sage for better contrast */
+  --danger: #E39677;      /* Slightly more saturated coral as accent */
+  --background: #5c7e68;  /* Darker sage background */
+  --text: #1A2426;       /* Slightly darker for better contrast */
   --shadow: rgba(0, 0, 0, 0.08);
 }
 
@@ -19,10 +19,11 @@ body {
 }
 
 .container {
-  background: white;
+  position: relative;
+  background: #FDF6EC;
   padding: 2.5rem;
   border-radius: 1.2rem;
-  box-shadow: 0 8px 30px var(--shadow);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 400px;
   width: 90%;
@@ -31,7 +32,7 @@ body {
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--text);
 }
 
@@ -39,8 +40,37 @@ h1 {
   font-size: 4rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  margin: 2rem 0;
+  margin: 1rem 0;
   color: var(--primary);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+}
+
+.timer::after {
+  content: "Click to start";
+  display: block;
+  position: static;
+  transform: none;
+  font-size: 0.875rem;
+  color: var(--text);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  transition: opacity 0.3s ease, margin 0.3s ease;
+  height: auto;
+}
+
+.timer.started::after {
+  opacity: 0;
+  margin: 0;
+  height: 0;
+}
+
+.timer:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 
 .controls {
@@ -69,16 +99,6 @@ button:active {
   transform: translateY(0);
 }
 
-#start {
-  background-color: var(--primary);
-  color: white;
-}
-
-#pause {
-  background-color: #E8ECF0;  /* Brighter grey */
-  color: var(--text);
-}
-
 #reset {
   background-color: var(--danger);
   color: white;
@@ -97,6 +117,33 @@ button:active {
   opacity: 0.75;
 }
 
+.mode-switch {
+  display: flex;
+  background: var(--shadow);
+  padding: 0.2rem;
+  border-radius: 1.5rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  min-width: 160px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border-radius: 1.2rem;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.9rem;
+  min-width: 60px;
+  white-space: nowrap;
+}
+
+.mode-btn.active {
+  background: white;
+  color: var(--primary);
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .container {
@@ -104,7 +151,8 @@ button:active {
   }
   
   .timer {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin: 0.75rem 0;
   }
   
   .controls {
@@ -114,5 +162,20 @@ button:active {
   
   button {
     width: 100%;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .mode-switch {
+    position: static;
+    margin: 0 auto 1rem;
+    transform: none;
+  }
+  
+  .container {
+    padding-top: 1.5rem;
   }
 } 

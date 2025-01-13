@@ -8,21 +8,13 @@
 </head>
 <body>
     <div class="container">
+        <div class="mode-switch">
+            <button class="mode-btn active">Focus</button>
+            <button class="mode-btn">Rest</button>
+        </div>
         <h1>Pomodoro Timer</h1>
-        <div class="timer">
-            <span id="minutes">25</span>:<span id="seconds">00</span>
-        </div>
-        <div class="controls">
-            <button id="start">Start</button>
-            <button id="pause" class="pause-btn">Pause</button>
-            <button id="reset">Reset</button>
-        </div>
-        <div class="controls" style="margin-top: 10px">
-            <button id="rest">Rest Mode</button>
-        </div>
-        <div class="mode">
-            <span id="mode-text">Anyone can focus for 1 minute. Just do that 25 times.</span>
-        </div>
+        <div class="timer">25:00</div>
+        <button id="reset">Reset</button>
     </div>
     <script src="script.js"></script>
 </body>
