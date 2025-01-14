@@ -122,15 +122,15 @@ button:active {
   background: var(--shadow);
   padding: 0.2rem;
   border-radius: 1.5rem;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  position: relative;
+  margin: 0 auto 1.5rem;
   min-width: 160px;
+  transform: none;
 }
 
 .mode-btn {
   flex: 1;
-  padding: 0.35rem 0.5rem;
+  padding: 0.35rem 1rem;
   border-radius: 1.2rem;
   background: transparent;
   color: var(--text);
